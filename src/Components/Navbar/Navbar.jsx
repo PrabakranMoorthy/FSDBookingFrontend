@@ -1,27 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext";
+import { Link, useNavigate } from "react-router-dom"
 import "./navbar.css";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  //const { dispatch } = useContext(AuthContext);
+  //const navigate = useNavigate();
+
+  //const handleLogout = () => {
+    //Clear localStorage
+    //localStorage.clear();
+    //Dispatch logout action
+    //dispatch({ type: "LOGOUT" });
+    //navigate("/login");
+    //Redirect to login
+  //}
   return (
-    <div className="navbar">
-      <div className="navContainer">
-        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">I Am Booking</span>
-        </Link>
-        {user ? (
-          user.username
-        ) : (
+    <>
+      <div className="navbar">
+        <div className="navContainer">
+          <Link to="/home" style={{ color: "inherit", textDecoration: "none" }}>
+            <span className="logo">Hotel Booking.com</span>
+          </Link>
+
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <div className="navItems">
+              <p>INR</p>
+              <img src="https://flagsweb.com/Flag_Emoji/India_Flag_Emoji.png" />
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

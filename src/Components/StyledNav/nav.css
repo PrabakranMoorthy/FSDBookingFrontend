@@ -1,0 +1,53 @@
+/* Navbar */
+.nav {
+    height: 80px;
+    background-color: #002956;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navCon {
+    color: white;    
+    background-color: #033a80;
+    padding: 23px 50px 20px 20px;
+    padding-left: 90px;
+    display: flex;
+    width: 1330px;
+    justify-content: space-between;
+  }
+  
+  .navlogo {
+    font-weight: 700;
+    font-size: 25px;
+    text-decoration: underline;
+    color: rgb(168, 224, 238); /* Golden yellow font color to match header */
+  }
+  
+  .navI {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navI img{
+    border-radius: 50%;
+    width:30px;
+    height: 30px;
+  }
+
+  .navBut {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #FFD700; /* Golden yellow font color to match header */
+    background-color: transparent; /* Transparent background */
+  }
+  
+  .P {
+    font-size: 20px;
+    color: #B0C4DE; /* Light steel blue font color to match header */
+  }
+  
+
+  

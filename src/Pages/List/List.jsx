@@ -1,45 +1,60 @@
-import React from "react";
-import Header from "../../Components/Header/Header";
-import Navbar from "../../Components/Navbar/Navbar";
 import "./list.css";
+import Navbar from "../../components/navbar/Navbar";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import SearchItem from "../../Components/SearchItem/SearchItem";
-import useFetch from "../../Hooks/useFetch";
-import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { DateRange } from "react-date-range";
+import SearchItem from "../../components/searchItem/SearchItem";
+import useFetch from "../../hooks/useFetch";
+import MailList from "../../components/mailList/MailList";
+import Metadata from "../../components/Metadata";
 
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
-  const [options] = useState(location.state.options);
+  const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, reFetch } = useFetch(
-    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+  const { data, loading, error, reFetch } = useFetch(
+    `http://localhost:5000/api/hotels?city=${destination}&min=${min || 0}&max=${
+      max || 999
+    }`
   );
+  console.log(data.length);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const hotelsPerPage = 6; //  Number of hotels to display per page
+
+  const indexOfLastHotel = currentPage * hotelsPerPage;
+  const indexOfFirstHotel = indexOfLastHotel - hotelsPerPage;
+  const currentHotels = data.slice(indexOfFirstHotel, indexOfLastHotel);
+
+  const totalPages = Math.ceil(data.length / hotelsPerPage);
+
+  const handlePageChange = (newpage) => {
+    setCurrentPage(newpage);
+  };
 
   const handleClick = () => {
     reFetch();
   };
   return (
     <div>
+      <Metadata title="Hotels in your destination | Booking.com" />
       <Navbar />
       <Header type="list" />
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
-            <h1 className="lsTitle">Search</h1>
+            <h1 className="lsTitle">Showing Results for:</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input
-                placeholder={destination}
-                type="text"
-                onChange={(e) => setDestination(e.target.value)}
-              />
+              <input placeholder={destination} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -107,20 +122,51 @@ const List = () => {
                 </div>
               </div>
             </div>
-            <button onClick={handleClick}>Search</button>
+            <button onClick={handleClick}>Refresh</button>
           </div>
           <div className="listResult">
             {loading ? (
-              "loading"
+              "Loading... Please wait for a while! ⌛️"
             ) : (
               <>
-                {data.map((item) => (
-                  <SearchItem item={item} key={item._id} />
-                ))}
+                {data.length === 0 ? (
+                  <div className="sorryModal">
+                    <div className="sorryModalContainer">
+                      <p>
+                        Sorry! No hotels are available for the selected
+                        criteria.
+                      </p>
+                      <Link to="/home">
+                        <button>Go to HomePage</button>
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  currentHotels.map((item) => (
+                    <SearchItem item={item} key={item._id} />
+                  ))
+                )}
               </>
             )}
+            <div className="pagination">
+              <p>See more results... {"   "}</p>
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? "active" : ""}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="homeContainer">
+        <MailList />
+        <Footer />
       </div>
     </div>
   );

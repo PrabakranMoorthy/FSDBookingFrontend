@@ -1,12 +1,20 @@
 .featured{
   width: 100%;
-  max-width: 1024px;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
   gap: 20px;
   z-index: 1;
 }
 
+.featuredGrid {  
+  width: 100%;
+  max-width: 1100px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three items per row */
+  gap: 20px; /* Gap between items */
+}
 .featuredItem{
   position: relative;
   color: white;

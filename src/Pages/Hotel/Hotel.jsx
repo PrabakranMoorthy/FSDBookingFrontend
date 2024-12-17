@@ -1,23 +1,20 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Header from "../../Components/Header/Header";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
-import Reserve from "../../Components/Reserve/Reserve";
-import MailList from "../../Components/MailList/MailList";
+import React, { useState } from "react";
+import BookingFormModal from "../../components/Modal/Modal"; // Import the new component
+import Navbar from "../../components/navbar/Navbar";
+import Header from "../../components/header/Header";
+import Feet from "../../components/Feet/Feet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
   faCircleXmark,
   faLocationDot,
+  faBed,
+  faParking,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
-import { SearchContext } from "../../Context/SearchContext";
-import useFetch from "../../Hooks/useFetch";
-import { AuthContext } from "../../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./hotel.css";
+import useFetch from "../../hooks/useFetch";
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -25,22 +22,9 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
-  const { data, loading } = useFetch(`/hotels/find/${id}`);
-
-  
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const { dates, options } = useContext(SearchContext);
-
-  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-  function dayDifference(date1, date2) {
-    const timeDiff = Math.abs(date2?.getTime() - date1?.getTime());
-    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
-    return diffDays;
-  }
-
-  const days = dayDifference(dates[0]?.endDate, dates[0]?.startDate);
+  const { data, loading } = useFetch(
+    `http://localhost:5000/api/hotels/find/${id}`
+  );
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -59,19 +43,24 @@ const Hotel = () => {
     setSlideNumber(newSlideNumber);
   };
 
-  const handleClick = () => {
-    if (user) {
-      setOpenModal(true);
-    } else {
-      navigate("/login");
-    }
+  const handleBookingFormModalOpen = () => {
+    setOpenModal(true);
+  };
+  const handleBookingFormModalClose = () => {
+    setOpenModal(false);
+  };
+
+  const handleConfirmBooking = (bookingDetails) => {
+    //Handle booking confirmation logic here
+    console.log("Booking confirmed:", bookingDetails);
+    handleBookingFormModalClose();
   };
   return (
     <div>
       <Navbar />
       <Header type="list" />
       {loading ? (
-        "loading"
+        "Loading... Please wait for a while! ⌛️"
       ) : (
         <div className="hotelContainer">
           {open && (
@@ -101,9 +90,10 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button onClick={handleClick} className="bookNow">
+            <button className="bookNow" onClick={handleBookingFormModalOpen}>
               Reserve or Book Now!
             </button>
+            {/*...other hotel details...*/}
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -134,24 +124,43 @@ const Hotel = () => {
                 <p className="hotelDesc">{data.desc}</p>
               </div>
               <div className="hotelDetailsPrice">
-                <h1>Perfect for a {days}-night stay!</h1>
+                <h1>Property highlights!</h1>
                 <span>
-                  Located in the real heart of Krakow, this property has an
-                  excellent location score of 9.8!
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  {data.city}
                 </span>
+                <span>
+                  <FontAwesomeIcon icon={faParking} />
+                  Parking available at the hotels
+                </span>
+                <div className="texts">
+                  <FontAwesomeIcon icon={faBed} /> Rooms:
+                </div>
+                <span className="siRoomsAvailables">
+                  {data.rooms?.map((photo, i) => (
+                    <p key={i}>{photo}</p>
+                  ))}
+                </span>
+
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                  nights)
+                  <b>${data.cheapestPrice}</b> (For 2-days)
                 </h2>
-                <button onClick={handleClick}>Reserve or Book Now!</button>
+                <button onClick={handleBookingFormModalOpen}>
+                  Reserve or Book Now!
+                </button>
               </div>
             </div>
           </div>
-          <MailList/>
-          <Footer />
+          <Feet />
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
+      {openModal && (
+        <BookingFormModal
+          isOpen={openModal}
+          onClose={handleBookingFormModalClose}
+          onConfirmBooking={handleConfirmBooking}
+        />
+      )}
     </div>
   );
 };

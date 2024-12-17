@@ -1,53 +1,84 @@
-import React from 'react';
+import React from "react";
 import "./featured.css";
-import useFetch from "../../Hooks/useFetch";
 
 const Featured = () => {
-    const {loading}=useFetch("/hotels/countByCity?cities=berlin,madrid,london");
-    return (
+  return (
+    <>
       <div className="featured">
-        {loading ? (
-          "Loading please wait"
-        ) : (
-          <>
-            <div className="featuredItem">
-              <img
-                src="https://i0.wp.com/oneday.travel/wp-content/uploads/one-day-chennai-to-mahabalipuram-and-kanchipuram-trip-sightseeing-tour-package-arjunar-penance-mahabalipuram.jpg?resize=750%2C500&ssl=1"
-                alt=""
-                className="featuredImg"
-              />
-              <div className="featuredTitles">
-                <h1>Chennai</h1>
-                <h2>369 properties</h2>
-              </div>
-            </div>
+        <div className="featuredItem">
+          <img
+            src="https://metro.co.uk/wp-content/uploads/2016/11/537856138.jpg?quality=90&strip=all&zoom=1&resize=964%2C641"
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>New York</h1>
+            <h2>100 properties</h2>
+          </div>
+        </div>
 
-            <div className="featuredItem">
-              <img
-                src="https://content.r9cdn.net/rimg/dimg/6d/77/0cc45283-city-32821-176ddb032b7.jpg?width=1200&height=630&crop=false"
-                alt=""
-                className="featuredImg"
-              />
-              <div className="featuredTitles">
-                <h1>New Delhi</h1>
-                <h2>231 properties</h2>
-              </div>
-            </div>
-            <div className="featuredItem">
-              <img
-                src="https://www.telegraph.co.uk/content/dam/Travel/Destinations/Asia/India/Mumbai/gateway-of-india-mumbai-xlarge.jpg?imwidth=640"
-                alt=""
-                className="featuredImg"
-              />
-              <div className="featuredTitles">
-                <h1>Mumbai</h1>
-                <h2>60 properties</h2>
-              </div>
-            </div>
-          </>
-        )}
+        <div className="featuredItem">
+          <img
+            src="https://th.bing.com/th/id/R.9fdfa716cb3c3c76fadb7796e9f70b60?rik=BrYb5SOhbxsQHw&riu=http%3a%2f%2fmedia.cntraveller.in%2fwp-content%2fuploads%2f2014%2f02%2fJal-Mahal-Jaipur-123rf-2.jpg&ehk=wHcmmXvbEUT3JO239QG2%2feeuMFZTQXL%2bS%2fwnR66o0Vg%3d&risl=&pid=ImgRaw&r=0"
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>Jaipur</h1>
+            <h2>210 properties</h2>
+          </div>
+        </div>
+
+        <div className="featuredItem">
+          <img
+            src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>Reno</h1>
+            <h2>533 properties</h2>
+          </div>
+        </div>
       </div>
-    );
+      <div className="featured">
+        <div className="featuredItem">
+          <img
+            src="https://th.bing.com/th/id/OIP.o95BDoJ-TLexWqSR4T-HTAHaE8?pid=ImgDet&rs=1"
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>Austin</h1>
+            <h2>532 properties</h2>
+          </div>
+        </div>
+        <div className="featuredItem">
+          <img
+            src="https://th.bing.com/th/id/OIP.gJT1KKvvgRRNIwjxCVNXuQHaEP?pid=ImgDet&rs=1"
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>Dublin</h1>
+            <h2>123 properties</h2>
+          </div>
+        </div>
+
+        <div className="featuredItem">
+          <img
+            src="https://th.bing.com/th/id/OIP.UbnHbrCPdmP77IcOam1MuAHaE7?pid=ImgDet&rs=1"
+            alt=""
+            className="featuredImg"
+          />
+          <div className="featuredTitles">
+            <h1>Swizerland</h1>
+            <h2>129 properties</h2>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Featured;

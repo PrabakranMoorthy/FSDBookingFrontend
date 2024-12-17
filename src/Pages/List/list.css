@@ -1,83 +1,165 @@
 .listContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-  
+
 .listWrapper {
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    gap: 20px;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  gap: 20px;
 }
-  
+
 .listSearch {
-    flex: 1;
-    background-color: #febb02;
-    padding: 10px;
-    border-radius: 10px;
-    position: sticky;
-    top: 10px;
-    height: max-content;
+  flex: 1;
+  background-color: #febb02;
+  padding: 10px;
+  border-radius: 10px;
+  position: sticky;
+  top: 10px;
+  height: max-content;
 }
-  
+
 .lsTitle{
-    font-size: 20px;
-    color: #555;
-    margin-bottom: 10px;
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
 }
-  
+
 .lsItem{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
 }
-  
+
 .lsItem>label{
-    font-size: 12px;
+  font-size: 12px;
 }
-  
+
 .lsItem>input{
-    height: 30px;
-    border: none;
-    padding: 5px;
+  height: 30px;
+  border: none;
+  padding: 5px;
 }
 .lsItem>span{
-    height: 30px;
-    padding: 5px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  height: 30px;
+  padding: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-  
+
 .lsOptions{
-    padding: 10px;
+  padding: 10px;
 }
-  
+
 .lsOptionItem{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 12px;
 }
-  
+
 .lsOptionInput{
-    width: 50px;
+  width: 50px;
 }
-  
+
 .listSearch>button{
-    padding: 10px;
-    background-color: #0071c2;
-    color: white;
-    border: none;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
+  padding: 10px;
+  background-color: #0071c2;
+  color: white;
+  border: none;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
 }
-  
+
 .listResult {
-    flex: 3;
+  flex: 3;
+}
+.sorryModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sorryModalContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.sorryModal button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.sorryModal button:hover {
+  background-color: #0056b3;
+}
+
+.pagination {
+  flex:3;
+  display: flex;
+  margin-top: 20px;
+  border: 1px lightblue;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  padding: 3px;
+  padding-bottom: 1px;
+}
+
+.pagination p{
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #0056b3;
+}
+
+.pagination button {
+  border: 1px solid black;
+  background-color: white;
+  color: #0056b3;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 6px 6px  15px 0;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.homeContainer{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  
+}
+.pagination button.active {
+  background-color: #0071c2;
+  color: white;
+  border-color: whitesmoke;
 }

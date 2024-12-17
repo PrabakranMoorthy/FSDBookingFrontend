@@ -1,0 +1,82 @@
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal.active {
+    display: flex;
+  }
+  
+  /* Modal Container */
+  .modal-container {
+    background: linear-gradient(135deg, #a4c2f4, #6dd5fa, #b3e0fa);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    max-width: 500px;
+    text-align: center;
+    display: grid;
+    padding: 20px;
+  }
+  
+  /* Modal Title */
+  .modal-title {
+    font-size: 20px;
+    font-weight: 400px;
+    color: black;
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  
+  /* Grid Layout for Inputs */
+  .input-grid {
+    display: grid;
+    gap: 15px;
+    margin-left: 60px;
+
+  }
+  
+  /* Form Inputs */
+  .modal-input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Buttons */
+ .modal-button {
+  background-color: #ff9800;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.modal-button.cancel {
+  background-color: #e0e0e0;
+  color: #000000;
+}
+
+  

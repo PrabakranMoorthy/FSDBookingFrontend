@@ -1,27 +1,109 @@
+/* Navbar */
 .navbar {
-  height: 50px;
-  background-color: #18b2a0;
+  height: 80px;
+  background-color: #002956;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navContainer {
-  width: 100%;
-  max-width: 1024px;
+  width: 1060px;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.navItems h3{
+  font-weight: bold;
+  font-size: 17px;
+  color: white;
+}
+
+
+
+.username{
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.navItems img{
+  border-radius: 50%;
+  width:30px;
+  height: 30px;
+  margin-right: 25px;
+}
+
+.navItems p{
+  font-size: 20px;
+  text-align: center;
+  font-size: bold;
+  color:azure
+}
+
 .logo {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: underline;
+  color: rgb(168, 224, 238); /* Golden yellow font color to match header */
+}
+
+
+
+.registerButton {
+  background-color: white;
+  color: skyblue;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 2px;
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: -9px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.linkStyle {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.loginButton {
+  background-color: white;
+  border: none;
+  padding: 8px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover,
+.loginButton:hover {
+  background-color: #70cde9;
+}
+
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .navButton {
-  margin-left: 20px;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #003580;
+  color: #FFD700; /* Golden yellow font color to match header */
+  background-color: transparent; /* Transparent background */
+}
+
+.P {
+  font-size: 20px;
+  color: #B0C4DE; /* Light steel blue font color to match header */
 }

@@ -5,9 +5,9 @@ import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { AuthContext } from "../../Context/AuthContext";
 import { SearchContext } from "../../Context/SearchContext";
 import "./header.css";
+import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBed,
@@ -19,9 +19,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ type }) => {
-  const [destination, setDestination] = useState(null);
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -36,8 +36,15 @@ const Header = ({ type }) => {
     room: 1,
   });
 
+  const suggestions = [
+    { value: "Dubai", label: "✈ Dubai" },
+    { value: "Mumbai", label: "🌤 Mumbai" },
+    { value: "Delhi", label: "☀ Delhi" },
+    { value: "Paris", label: "✈ Paris" },
+    { value: "Udaipur", label: "🌤 Udaipur" },
+  ];
+
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -51,8 +58,8 @@ const Header = ({ type }) => {
   const { dispatch } = useContext(SearchContext);
 
   const handleSearch = () => {
-    dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
-    navigate("/hotels", { state: { destination, date, options } });
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
   };
   return (
     <div className="header">
@@ -86,30 +93,39 @@ const Header = ({ type }) => {
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? Its Genius.
+              Book top attractions for less with a Getaway Deal.
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              Save money on tickets for top sights, tours and experiences with a
+              Getaway Deal
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="Enter your destination"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
+                <div className="select">
+                  <Select
+                    options={suggestions}
+                    placeholder="Suggested"
+                    onChange={(selectedOption) =>
+                      setDestination(selectedOption.value)
+                    }
+                    // onInputChange={(inputValue) => setDestination(inputValue)}
+                  />
+                </div>
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                  date[0].endDate,
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
                 {openDate && (
