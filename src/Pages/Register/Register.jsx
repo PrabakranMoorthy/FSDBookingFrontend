@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Navbar from "../../Components/styledNav/Nav";
-import Metadata from "../../Components/Metadata";
+import Metadata from "../../components/Metadata";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../components/styledNav/Nav";
 import axios from "axios";
 
 const Container = styled.div`
@@ -132,7 +132,7 @@ const Register = () => {
   //   event.preventDefault();
 
   //   try {
-  //     const response = await axios.post("http://localhost:5000/api/auth/register", formData);
+  //     const response = await axios.post("http://localhost:8800/api/auth/register", formData);
   //     console.log(response.data);
 
   //     // Dispatch a "LOGIN_SUCCESS" action with the user dat
