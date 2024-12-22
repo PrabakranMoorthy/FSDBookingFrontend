@@ -23,8 +23,11 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
-      console.log(res.data)
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        credentials
+      );
+      console.log(res.data);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/");
     } catch (err) {
@@ -34,43 +37,44 @@ const Login = () => {
 
   const [formData, setFormData] = useState({
     username: "",
-    password:"",
-  })
+    password: "",
+  });
 
-   const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
-   const handleChange = (event) => {
-     const { name, value } = event.target;
-     setFormData((prevFormData) => ({
-       ...prevFormData,
-       [name]: value,
-     }));
-   };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
-   const handleSubmit = (event) => {
-     event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-     fetch("https://ser-cytv.onrender.com/login", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify(formData),
-     })
-       .then((response) => {
-         alert("Logged In succesfully");
-         window.location.replace("/home");
-       })
-       .then((data) => {
-         // Handle the successful login response here
-         console.log(data);
-       })
-       .catch((error) => {
-         // Handle error if the login API call fails
-         setError("Invalid email or password. Please try again.");
-         console.error("Error:", error);
-       });
-   };
+    // Perform API call here
+    fetch("https://fsdbookingbackend-1.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        alert("Logged In succesfully");
+        window.location.replace("/home");
+      })
+      .then((data) => {
+        // Handle the successful login response here
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle error if the login API call fails
+        setError("Invalid email or password. Please try again.");
+        console.error("Error:", error);
+      });
+  };
 
   return (
     <div className="login">
@@ -89,7 +93,7 @@ const Login = () => {
           onChange={handleChange}
           className="lInput"
         />
-        <button  onClick={handleClick} className="lButton">
+        <button onClick={handleClick} className="lButton">
           Login
         </button>
       </div>

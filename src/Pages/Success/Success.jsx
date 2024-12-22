@@ -4,7 +4,7 @@ import Feet from "../../components/Feet/Feet";
 import "styled-components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Metadata from "../../components/Metadata";
+import MetaData from "../../Components/Metadata";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -73,7 +73,7 @@ const Button = styled.button`
 const Success = () => {
   return (
     <>
-      <Metadata title="Successfully booked | Booking.com" />
+      <MetaData title="Successfully booked | Booking.com" />
       <Navbar />
       <Gap />
       <Wrapper>

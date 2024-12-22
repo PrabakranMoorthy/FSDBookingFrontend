@@ -49,9 +49,11 @@ const Hotel = () => {
   const handleBookingFormModalClose = () => {
     setOpenModal(false);
   };
+  const [error, setError] = useState("");
 
   const handleConfirmBooking = (bookingDetails) => {
     //Handle booking confirmation logic here
+
     console.log("Booking confirmed:", bookingDetails);
     handleBookingFormModalClose();
   };

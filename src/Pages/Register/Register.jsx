@@ -201,7 +201,7 @@ const Register = () => {
     }
     // Perform API call here
     // Example using fetch:
-    fetch("https://ser-cytv.onrender.com/register", {
+    fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
