@@ -59,7 +59,7 @@ const Reserve = ({ setOpen, hotelId }) => {
       await Promise.all(
         selectedRooms.map((roomId) => {
           const res = axios.put(
-            `http://localhost:5000/api/rooms/availability/${roomId}`,
+            `https://fsdbookingbackend-1.onrender.com/api/rooms/availability/${roomId}`,
             {
               dates: allDates,
             }

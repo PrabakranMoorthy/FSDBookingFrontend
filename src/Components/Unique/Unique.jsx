@@ -5,7 +5,9 @@ import "./unique.css"
 
 const HighRatedHotels = () => {
 
-    const { data, loading, error } = useFetch(`http://localhost:5000/api/hotels?uniqueData=true&limit=3`);
+    const { data, loading, error } = useFetch(
+      `https://fsdbookingbackend-1.onrender.com/api/hotels?uniqueData=true&limit=3`
+    );
 
 
     return (

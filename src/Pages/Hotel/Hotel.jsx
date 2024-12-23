@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import "./hotel.css";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../Hooks/useFetch";
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -23,7 +23,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/hotels/find/${id}`
+    `https://fsdbookingbackend-1.onrender.com/api/hotels/find/${id}`
   );
 
   const handleOpen = (i) => {
