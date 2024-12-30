@@ -1,11 +1,11 @@
-import useFetch from "../../Hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 import { Link } from "react-router-dom";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading, error } = useFetch(
-    "https://fsdbookingbackend-1.onrender.com/api/hotels?featured=true&limit=8"
+    "http://localhost:5000/api/hotels?featured=true&limit=8"
   );
 
   const halfLength = Math.ceil(data.length / 2);

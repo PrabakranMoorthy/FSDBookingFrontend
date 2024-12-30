@@ -161,7 +161,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://fsdbookingbackend-1.onrender.com/api/auth/login", {
+    fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

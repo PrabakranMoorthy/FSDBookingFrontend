@@ -24,7 +24,7 @@ const Login = () => {
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post(
-        "https://fsdbookingbackend-1.onrender.com/api/auth/login",
+        "http://localhost:5000/api/auth/login",
         credentials
       );
       console.log(res.data);
@@ -54,7 +54,7 @@ const Login = () => {
     event.preventDefault();
 
     // Perform API call here
-    fetch("https://fsdbookingbackend-1.onrender.com/api/auth/login", {
+    fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

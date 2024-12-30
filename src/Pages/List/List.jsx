@@ -7,28 +7,27 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
-import useFetch from "../../Hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import MailList from "../../components/mailList/MailList";
 import Metadata from "../../components/Metadata";
 
 const List = () => {
-  const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [dates, setDates] = useState(location.state.date);
-  const [openDate, setOpenDate] = useState(false);
-  const [options, setOptions] = useState(location.state.options);
-  const [min, setMin] = useState(undefined);
-  const [max, setMax] = useState(undefined);
+    const location = useLocation();
+    const [destination, setDestination] = useState(location.state.destination);
+    const [dates, setDates] = useState(location.state.dates);
+    const [openDate, setOpenDate] = useState(false);
+    const [options, setOptions] = useState(location.state.options);
+    const [min, setMin] = useState(undefined);
+    const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `https://fsdbookingbackend-1.onrender.com/api/hotels?city=${destination}&min=${
-      min || 0
-    }&max=${max || 999}`
+    `http://localhost:5000/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
+
   console.log(data.length);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const hotelsPerPage = 6; //  Number of hotels to display per page
+  const hotelsPerPage = 6; // Number of hotels to display per page
 
   const indexOfLastHotel = currentPage * hotelsPerPage;
   const indexOfFirstHotel = indexOfLastHotel - hotelsPerPage;
@@ -36,13 +35,14 @@ const List = () => {
 
   const totalPages = Math.ceil(data.length / hotelsPerPage);
 
-  const handlePageChange = (newpage) => {
-    setCurrentPage(newpage);
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
   };
 
   const handleClick = () => {
     reFetch();
   };
+
   return (
     <div>
       <Metadata title="Hotels in your destination | Booking.com" />

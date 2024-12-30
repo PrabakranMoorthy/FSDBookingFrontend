@@ -4,7 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 
 const PropertyList = () => {
   const { data, loading, error } = useFetch(
-    "https://fsdbookingbackend-1.onrender.com/api/hotels/countByType"
+    "http://localhost:5000/api/hotels/countByType"
   );
 
   const images = [

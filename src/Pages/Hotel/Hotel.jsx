@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import BookingFormModal from "../../components/Modal/Modal"; // Import the new component
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
@@ -15,6 +15,7 @@ import {
 import { useLocation } from "react-router-dom";
 import "./hotel.css";
 import useFetch from "../../Hooks/useFetch";
+
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -23,7 +24,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading } = useFetch(
-    `https://fsdbookingbackend-1.onrender.com/api/hotels/find/${id}`
+    `http://localhost:5000/api/hotels/find/${id}`
   );
 
   const handleOpen = (i) => {
@@ -46,17 +47,17 @@ const Hotel = () => {
   const handleBookingFormModalOpen = () => {
     setOpenModal(true);
   };
+
   const handleBookingFormModalClose = () => {
     setOpenModal(false);
   };
-  const [error, setError] = useState("");
 
   const handleConfirmBooking = (bookingDetails) => {
-    //Handle booking confirmation logic here
-
+    // Handle booking confirmation logic here
     console.log("Booking confirmed:", bookingDetails);
     handleBookingFormModalClose();
   };
+
   return (
     <div>
       <Navbar />
@@ -154,14 +155,14 @@ const Hotel = () => {
             </div>
           </div>
           <Feet />
+          {openModal && (
+            <BookingFormModal
+              isOpen={openModal}
+              onClose={handleBookingFormModalClose}
+              onConfirmBooking={handleConfirmBooking}
+            />
+          )}
         </div>
-      )}
-      {openModal && (
-        <BookingFormModal
-          isOpen={openModal}
-          onClose={handleBookingFormModalClose}
-          onConfirmBooking={handleConfirmBooking}
-        />
       )}
     </div>
   );

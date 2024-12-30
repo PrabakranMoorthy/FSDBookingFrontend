@@ -5,7 +5,7 @@ import "./ratedhotels.css";
 
 const HighRatedHotels = () => {
   const { data, loading, error } = useFetch(
-    "https://fsdbookingbackend-1.onrender.com/api/hotels?featured=false&limit=4"
+    "http://localhost:5000/api/hotels?featured=false&limit=4"
   );
 
   return (
@@ -23,7 +23,6 @@ const HighRatedHotels = () => {
                 Starting from ${item.cheapestPrice}
               </span>
               <button>{item.rating}</button>
-              <span>Excellent</span>
             </Link>
           ))}
         </>
