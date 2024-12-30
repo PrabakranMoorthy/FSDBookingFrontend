@@ -5,7 +5,7 @@ import "./ratedhotels.css";
 
 const HighRatedHotels = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:5000/api/hotels?featured=false&limit=4"
+    "https://fsdbookingbackend-2.onrender.com/api/hotels?featured=false&limit=4"
   );
 
   return (

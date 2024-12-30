@@ -5,7 +5,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:5000/api/hotels?featured=true&limit=8"
+    "https://fsdbookingbackend-2.onrender.com/api/hotels?featured=true&limit=8"
   );
 
   const halfLength = Math.ceil(data.length / 2);

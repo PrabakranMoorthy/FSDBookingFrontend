@@ -24,7 +24,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/hotels/find/${id}`
+    `https://fsdbookingbackend-2.onrender.com/api/hotels/find/${id}`
   );
 
   const handleOpen = (i) => {

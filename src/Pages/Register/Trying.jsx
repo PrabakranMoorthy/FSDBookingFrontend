@@ -121,7 +121,7 @@ const Register = () => {
     }
     // Perform API call here
     // Example using fetch:
-    fetch("https://fsdbookingbackend-1.onrender.com/api/auth/register", {
+    fetch("https://fsdbookingbackend-2.onrender.com/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
