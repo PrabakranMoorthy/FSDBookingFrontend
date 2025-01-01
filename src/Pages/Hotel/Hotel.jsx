@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import BookingFormModal from "../../components/Modal/Modal"; // Import the new component
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
@@ -15,6 +15,7 @@ import {
 import { useLocation } from "react-router-dom";
 import "./hotel.css";
 import useFetch from "../../Hooks/useFetch";
+import { host } from "../../Hooks/Config";
 
 const Hotel = () => {
   const location = useLocation();
@@ -23,9 +24,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
-  const { data, loading } = useFetch(
-    `https://fsdbookingbackend-2.onrender.com/api/hotels/find/${id}`
-  );
+  const { data, loading } = useFetch(`${host}/api/hotels/find/${id}`);
 
   const handleOpen = (i) => {
     setSlideNumber(i);

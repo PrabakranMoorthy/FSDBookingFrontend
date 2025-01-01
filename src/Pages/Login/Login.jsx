@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import "./login.css";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
+import { host } from "../../Hooks/Config";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -23,10 +24,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post(
-        "https://fsdbookingbackend-2.onrender.com/api/auth/login",
-        credentials
-      );
+      const res = await axios.post(host + "/api/auth/login", credentials);
       console.log(res.data);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/");
@@ -54,7 +52,7 @@ const Login = () => {
     event.preventDefault();
 
     // Perform API call here
-    fetch("http://localhost:5000/api/auth/login", {
+    fetch(host + "/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

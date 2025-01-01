@@ -10,6 +10,7 @@ import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 import MailList from "../../components/mailList/MailList";
 import Metadata from "../../components/Metadata";
+import { host } from "../../Hooks/Config";
 
 const List = () => {
     const location = useLocation();
@@ -21,7 +22,7 @@ const List = () => {
     const [max, setMax] = useState(undefined);
 
   const { data, loading, error, reFetch } = useFetch(
-    `https://fsdbookingbackend-2.onrender.com/api/hotels?city=${destination}&min=${
+    `${host}/api/hotels?city=${destination}&min=${
       min || 0
     }&max=${max || 999}`
   );

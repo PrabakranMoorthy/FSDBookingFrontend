@@ -7,12 +7,11 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { SearchContext } from "../../Context/SearchContext";
 import axios from "axios";
 import "./reserve.css";
+import { host } from "../../Hooks/Config";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data } = useFetch(
-    `https://fsdbookingbackend-2.onrender.com/api/hotels/room/${hotelId}`
-  );
+  const { data } = useFetch(`${host}/api/hotels/room/${hotelId}`);
 
   const { dates } = useContext(SearchContext);
 
@@ -58,12 +57,9 @@ const Reserve = ({ setOpen, hotelId }) => {
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
-          const res = axios.put(
-            `https://fsdbookingbackend-2.onrender.com/api/rooms/availability/${roomId}`,
-            {
-              dates: allDates,
-            }
-          );
+          const res = axios.put(`${host}/api/rooms/availability/${roomId}`, {
+            dates: allDates,
+          });
           return res.data;
         })
       );

@@ -4,6 +4,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/styledNav/Nav";
 import axios from "axios";
+import { host } from "../../Hooks/Config";
 
 const Container = styled.div`
   width: 100vw;
@@ -201,7 +202,7 @@ const Register = () => {
     }
     // Perform API call here
     // Example using fetch:
-    fetch("https://fsdbookingbackend-2.onrender.com/api/auth/register", {
+    fetch(host + "/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

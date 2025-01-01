@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import "./ratedhotels.css";
+import { host } from "../../Hooks/Config";
 
 const HighRatedHotels = () => {
   const { data, loading, error } = useFetch(
-    "https://fsdbookingbackend-2.onrender.com/api/hotels?featured=false&limit=4"
+    host + "/api/hotels?featured=false&limit=4"
   );
 
   return (

@@ -1,7 +1,7 @@
 import axios from "axios";
-
+import { host } from "Config";
 const NewRequest = axios.create({
-  baseURL: "https://fsdbookingbackend-2.onrender.com/api/",
+  baseURL: host + "/api/",
   withCredentials: true,
 });
 
