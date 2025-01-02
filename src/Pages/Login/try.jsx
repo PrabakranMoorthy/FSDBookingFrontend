@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import styled from "styled-components";
-import Metadata from "../../components/Metadata";
+import MetaData from "../../components/MetaData";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/styledNav/Nav";
@@ -207,7 +207,7 @@ const Login = () => {
     //   </div>
     //</div> */
     <>
-      <Metadata title="Login | Booking.com" />
+      <MetaData title="Login | Booking.com" />
       <Navbar />
       <Ok />
       <Container>

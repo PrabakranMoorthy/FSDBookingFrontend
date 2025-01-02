@@ -6,15 +6,15 @@ import FeaturedProperties from "../../Components/Featured/Featured";
 import RatedHotels from "../../Components/Ratedhotels/RatedHotels";
 import Unique from "../../Components/Unique/Unique";
 import Try from "../../Components/Featured/Try";
-import Metadata from "../../Components/Metadata";
 import MailList from "../../Components/MailList/MailList";
+import MetaData from "../../Components/MetaData";
 
 import "./home.css";
 
 const Home = () => {
   return (
     <div>
-      <Metadata title="Home | Booking.com" />
+      <MetaData title="Home | Booking.com" />
       <Navbar />
       <Header />
       <div className="homeContainer">

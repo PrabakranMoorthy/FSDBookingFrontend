@@ -9,7 +9,7 @@ import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 import MailList from "../../components/mailList/MailList";
-import Metadata from "../../components/Metadata";
+import MetaData from "../../Components/MetaData";
 import { host } from "../../Hooks/Config";
 
 const List = () => {
@@ -48,7 +48,7 @@ const List = () => {
 
   return (
     <div>
-      <Metadata title="Hotels in your destination | Booking.com" />
+      <MetaData title="Hotels in your destination | Booking.com" />
       <Navbar />
       <Header type="list" />
       <div className="listContainer">

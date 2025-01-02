@@ -4,7 +4,7 @@ import Feet from "../../components/Feet/Feet";
 import "styled-components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import MetaData from "../../Components/Metadata";
+import MetaData from "../../Components/MetaData";
 
 const Wrapper = styled.div`
   position: fixed;

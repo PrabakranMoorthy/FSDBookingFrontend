@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Metadata from "../../Components/Metadata";
+import MetaData from "../../Components/MetaData";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { host } from "../../Hooks/Config";
@@ -146,7 +146,7 @@ const Register = () => {
 
   return (
     <>
-      <Metadata title="Register | ShopVista" />
+      <MetaData title="Register | ShopVista" />
       <Container>
         <Wrapper>
           <Title>CREATE AN ACCOUNT</Title>
