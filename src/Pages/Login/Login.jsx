@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post(host + "/api/auth/login", credentials);
+      const res = await axios.post(`${host}/api/auth/login`, credentials);
       console.log(res.data);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/");
@@ -52,7 +52,7 @@ const Login = () => {
     event.preventDefault();
 
     // Perform API call here
-    fetch(host + "/api/auth/login", {
+    fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

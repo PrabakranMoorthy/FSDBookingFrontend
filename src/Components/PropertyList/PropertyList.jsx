@@ -1,10 +1,11 @@
 import React from "react";
 import "./propertylist.css";
 import useFetch from "../../Hooks/useFetch";
+import { host } from "../../Hooks/Config";
 
 const PropertyList = () => {
   const { data, loading, error } = useFetch(
-    "https://fsdbookingbackend-2.onrender.com/api/hotels/countByType"
+    `${host}/api/hotels/countByType`
   );
 
   const images = [

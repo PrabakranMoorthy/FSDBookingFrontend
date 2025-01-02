@@ -6,7 +6,7 @@ import { host } from "../../Hooks/Config";
 
 const HighRatedHotels = () => {
   const { data, loading, error } = useFetch(
-    host + "/api/hotels?featured=false&limit=4"
+     `${host}/api/hotels?featured=true&limit=4`
   );
 
   return (

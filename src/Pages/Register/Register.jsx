@@ -133,7 +133,7 @@ const Register = () => {
   //   event.preventDefault();
 
   //   try {
-  //     const response = await axios.post("https://fsdbookingbackend-2.onrender.com/api/auth/register", formData);
+  //     const response = await axios.post(`${host}/api/auth/register`, formData);
   //     console.log(response.data);
 
   //     // Dispatch a "LOGIN_SUCCESS" action with the user dat

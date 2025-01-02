@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Metadata from "../../Components/Metadata";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { host } from "../../Hooks/Config";
 
 const Container = styled.div`
   width: 100vw;
@@ -121,7 +122,7 @@ const Register = () => {
     }
     // Perform API call here
     // Example using fetch:
-    fetch("https://fsdbookingbackend-2.onrender.com/api/auth/register", {
+    fetch(`${host}/api/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

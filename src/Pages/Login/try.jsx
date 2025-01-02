@@ -6,6 +6,7 @@ import Metadata from "../../components/Metadata";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/styledNav/Nav";
+import { host } from "../../Hooks/Config";
 
 const Container = styled.div`
   width: 100vw;
@@ -161,7 +162,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/api/auth/login", {
+    fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
