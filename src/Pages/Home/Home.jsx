@@ -4,7 +4,7 @@ import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import PropertyList from "../../Components/PropertyList/PropertyList";
 import FeaturedProperties from "../../Components/Featured/Featured";
-import HighRatedHotels from "../../Components/RatedHotels/ratedhotels";
+import RatedHotels from "../../Components/RatedHotels/RatedHotels";
 import Unique from "../../Components/Unique/Unique";
 import Try from "../../Components/Featured/Try";
 import Metadata from "../../Components/Metadata";
@@ -34,7 +34,7 @@ const Home = () => {
         <h3 className="homeTitles">
           Indulge in Excellence: Discover Our High-Rated Hotels
         </h3>
-        <HighRatedHotels />
+        <RatedHotels />
         <h1 className="homeTitle">Stay at our top unique properties</h1>
         <h3 className="homeTitles">
           From castles and villas to boats and igloos, we've got it all
