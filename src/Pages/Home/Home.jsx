@@ -4,7 +4,7 @@ import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import PropertyList from "../../Components/PropertyList/PropertyList";
 import FeaturedProperties from "../../Components/Featured/Featured";
-import HighRatedHotels from "../../Components/RatedHotels/RatedHotels";
+import HighRatedHotels from "../../Components/RatedHotels/ratedhotels";
 import Unique from "../../Components/Unique/Unique";
 import Try from "../../Components/Featured/Try";
 import Metadata from "../../Components/Metadata";
