@@ -1,10 +1,10 @@
-import React from "react";
+
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import PropertyList from "../../Components/PropertyList/PropertyList";
 import FeaturedProperties from "../../Components/Featured/Featured";
-import RatedHotels from "../../Components/RatedHotels/ratedhotels";
+import RatedHotels from "../../Components/Ratedhotels/RatedHotels";
 import Unique from "../../Components/Unique/Unique";
 import Try from "../../Components/Featured/Try";
 import Metadata from "../../Components/Metadata";

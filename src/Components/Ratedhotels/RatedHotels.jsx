@@ -1,12 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
-import "./ratedhotels.css";
+import "./ratedHotels.css";
 import { host } from "../../Hooks/Config";
 
-const ratedhotels = () => {
+const RatedHotels = () => {
   const { data, loading, error } = useFetch(
-     `${host}/api/hotels?featured=true&limit=4`
+    `${host}/api/hotels?featured=true&limit=4`
   );
 
   return (
@@ -23,7 +22,12 @@ const ratedhotels = () => {
               <span className="fpPrice">
                 Starting from ${item.cheapestPrice}
               </span>
-              <button>{item.rating}</button>
+              {item.rating && (
+                <div className="fpRating">
+                  <button>{item.rating}</button>
+                  <span>Excellent</span>
+                </div>
+              )}
             </Link>
           ))}
         </>
@@ -32,4 +36,4 @@ const ratedhotels = () => {
   );
 };
 
-export default ratedhotels;
+export default RatedHotels;
