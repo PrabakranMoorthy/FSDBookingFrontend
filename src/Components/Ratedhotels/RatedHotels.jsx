@@ -4,7 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 import "./ratedhotels.css";
 import { host } from "../../Hooks/Config";
 
-const RatedHotels = () => {
+const ratedhotels = () => {
   const { data, loading, error } = useFetch(
      `${host}/api/hotels?featured=true&limit=4`
   );
@@ -32,4 +32,4 @@ const RatedHotels = () => {
   );
 };
 
-export default RatedHotels;
+export default ratedhotels;
