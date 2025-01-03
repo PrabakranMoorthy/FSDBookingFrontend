@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Metadata from "../../Components/Metadata";
+import MetaData from "../../Components/MetaData";
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/styledNav/Nav";
+import Navbar from "../../Components/StyledNav/Nav";
 import axios from "axios";
 import { host } from "../../Hooks/Config";
 
@@ -226,7 +226,7 @@ const Register = () => {
 
   return (
     <>
-      <Metadata title="Register | ShopVista" />
+      <MetaData title="Register | ShopVista" />
       <Navbar />
       <Ok />
       <Container>
