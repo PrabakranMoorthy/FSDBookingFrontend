@@ -1,7 +1,6 @@
 import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 import { Link } from "react-router-dom";
-import "./featuredProperties.css";
 import { host } from "../../Hooks/Config";
 
 const FeaturedProperties = () => {

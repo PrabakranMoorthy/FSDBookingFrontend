@@ -1,14 +1,14 @@
 import "./list.css";
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import Navbar from "../../Components/Navbar/Navbar";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
-import SearchItem from "../../components/searchItem/SearchItem";
-import useFetch from "../../hooks/useFetch";
-import MailList from "../../components/mailList/MailList";
+import SearchItem from "../../Components/SearchItem/SearchItem";
+import useFetch from "../../Hooks/useFetch";
+import MailList from "../../Components/MailList/MailList";
 import MetaData from "../../Components/MetaData";
 import { host } from "../../Hooks/Config";
 

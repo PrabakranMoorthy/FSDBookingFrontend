@@ -8,7 +8,6 @@ import Unique from "../../Components/Unique/Unique";
 import Try from "../../Components/Featured/Try";
 import MailList from "../../Components/MailList/MailList";
 import MetaData from "../../Components/MetaData";
-
 import "./home.css";
 
 const Home = () => {

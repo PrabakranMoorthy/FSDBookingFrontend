@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
-import Feet from "../../components/Feet/Feet";
+import Navbar from "../../Components/Navbar/Navbar";
+import Feet from "../../Components/Feet/Feet";
 import "styled-components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";

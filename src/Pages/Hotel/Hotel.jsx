@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import BookingFormModal from "../../components/Modal/Modal"; // Import the new component
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
-import Feet from "../../components/Feet/Feet";
+import BookingFormModal from "../../Components/Modal/Modal"; // Import the new component
+import Navbar from "../../Components/Navbar/Navbar";
+import Header from "../../Components/Header/Header";
+import Feet from "../../Components/Feet/Feet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
