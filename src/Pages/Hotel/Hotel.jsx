@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Header from "../../Components/Header/Header";
 import Feet from "../../Components/Feet/Feet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -52,9 +53,20 @@ const Hotel = () => {
   };
 
   const handleConfirmBooking = (bookingDetails) => {
-    // Handle booking confirmation logic here
-    console.log("Booking confirmed:", bookingDetails);
-    handleBookingFormModalClose();
+    const handleBooking = async () => {
+      try {
+        const res = await axios.post(
+          `${host}/api/rooms/bookroom`,
+          bookingDetails
+        );
+        console.log(res.data);
+        console.log("Booking confirmed:", bookingDetails);
+        handleBookingFormModalClose();
+      } catch (err) {
+        console.log(err.response.data);
+      }
+    };
+    handleBooking;
   };
 
   return (
@@ -159,6 +171,7 @@ const Hotel = () => {
               isOpen={openModal}
               onClose={handleBookingFormModalClose}
               onConfirmBooking={handleConfirmBooking}
+              id={id}
             />
           )}
         </div>
