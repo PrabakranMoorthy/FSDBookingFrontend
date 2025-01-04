@@ -1,5 +1,5 @@
 import React from "react";
-import "./PropertyList.css";
+import "./Propertylist.css";
 import useFetch from "../../Hooks/useFetch";
 import { host } from "../../Hooks/Config";
 
