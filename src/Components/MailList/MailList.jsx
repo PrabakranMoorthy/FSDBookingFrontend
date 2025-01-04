@@ -1,5 +1,5 @@
 import React from "react";
-import "./maillist.css";
+import "./Maillist.css";
 
 const MailList = () => {
   const Alert = () => {

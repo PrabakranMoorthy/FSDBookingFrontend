@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { SearchContext } from "../../Context/SearchContext";
-import "./header.css";
+import "./Header.css";
 import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

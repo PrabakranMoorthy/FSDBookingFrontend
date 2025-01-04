@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./modal.css";
+import "./Modal.css";
 
 const BookingFormModal = ({ isOpen, onClose, onConfirmBooking }) => {
   const Navigate = useNavigate();

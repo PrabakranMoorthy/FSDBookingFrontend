@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { SearchContext } from "../../Context/SearchContext";
 import axios from "axios";
-import "./reserve.css";
+import "./Reserve.css";
 import { host } from "../../Hooks/Config";
 
 const Reserve = ({ setOpen, hotelId }) => {

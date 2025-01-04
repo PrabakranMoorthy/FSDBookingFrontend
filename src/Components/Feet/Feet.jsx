@@ -1,5 +1,5 @@
 import React from 'react';
-import "./feet.css"
+import "./Feet.css"
 
 const MailList = () => {
     return (
