@@ -1,18 +1,18 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"
-import "./Navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import "./navbar.css";
 
 const Navbar = () => {
   //const { dispatch } = useContext(AuthContext);
   //const navigate = useNavigate();
 
   //const handleLogout = () => {
-    //Clear localStorage
-    //localStorage.clear();
-    //Dispatch logout action
-    //dispatch({ type: "LOGOUT" });
-    //navigate("/login");
-    //Redirect to login
+  //Clear localStorage
+  //localStorage.clear();
+  //Dispatch logout action
+  //dispatch({ type: "LOGOUT" });
+  //navigate("/login");
+  //Redirect to login
   //}
   return (
     <>
