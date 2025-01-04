@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
-import "./unique.css";
+import "./Unique.css";
 import { host } from "../../Hooks/Config";
 
 const HighRatedHotels = () => {

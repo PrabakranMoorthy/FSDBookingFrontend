@@ -245,7 +245,7 @@ const Login = () => {
             <Button type="submit">Sign In</Button>
             {error && <Error>Something went wrong...</Error>}
             <Linking>
-              <Link to="/register">DON'T HAVE AN ACCOUNT? {"  "}SIGNUP</Link>
+              <Link to="/register">DONT HAVE AN ACCOUNT? {"  "}SIGNUP</Link>
             </Linking>
           </Form>
 
