@@ -1,5 +1,5 @@
 import useFetch from "../../hooks/useFetch";
-import "./FeaturedProperties.css";
+import "./featuredProperties.css";
 import { Link } from "react-router-dom";
 import { host } from "../../Hooks/Config";
 

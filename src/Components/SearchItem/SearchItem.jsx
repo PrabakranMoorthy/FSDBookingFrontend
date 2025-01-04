@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Searchitem.css";
+import "./searchitem.css";
 
 const SearchItem = ({ item }) => {
   return (

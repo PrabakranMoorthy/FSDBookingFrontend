@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
-import "./RatedHotels.css";
+import "./ratedHotels.css";
 import { host } from "../../Hooks/Config";
 
 const RatedHotels = () => {
