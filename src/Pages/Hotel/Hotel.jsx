@@ -52,9 +52,25 @@ const Hotel = () => {
     setOpenModal(false);
   };
 
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  };
+
+  // Get token from cookies
+
   const handleConfirmBooking = async (bookingDetails) => {
     try {
-      const token = sessionStorage.getItem("authToken");
+      // Retrieve the token from cookies (ensure getCookie function is defined)
+      const token = getCookie("access_token");
+
+      if (!token) {
+        throw new Error("Token is missing or expired. Please login again.");
+      }
+
+      // Make the booking request
       const res = await axios.post(
         `${host}/api/rooms/bookroom`,
         bookingDetails,
@@ -65,15 +81,37 @@ const Hotel = () => {
           },
         }
       );
-      if (res.status == 200) {
+
+      // Check if the response status is 200 (success)
+      if (res.status === 200) {
         console.log(res.data);
         console.log("Booking confirmed:", bookingDetails);
-        handleBookingFormModalClose();
+        handleBookingFormModalClose(); // Close the modal after successful booking
       } else {
-        alert(res.data.message);
+        // If status is not 200, show the error message
+        alert(
+          res.data.message || "Something went wrong while booking the room."
+        );
       }
     } catch (err) {
-      console.log(err.response.data);
+      // Log detailed error information for debugging
+      if (err.response) {
+        // Server responded with an error
+        console.error("Error response:", err.response.data);
+        alert(
+          `Error: ${
+            err.response.data.message || "An error occurred. Please try again."
+          }`
+        );
+      } else if (err.request) {
+        // No response received
+        console.error("Error request:", err.request);
+        alert("Error: No response from server. Please try again later.");
+      } else {
+        // Something else went wrong
+        console.error("Error:", err.message);
+        alert(`Error: ${err.message}`);
+      }
     }
   };
 

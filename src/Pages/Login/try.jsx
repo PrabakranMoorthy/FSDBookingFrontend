@@ -146,7 +146,7 @@ const Login = () => {
 
   const [formData, setFormData] = useState({
     username: "",
-    Password: "",
+    password: "",
   });
 
   const [error, setError] = useState("");
@@ -168,18 +168,28 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
+      credentials: "include", // Ensure cookies are sent and received
     })
-      .then(() => {
-        alert("Logged In succesfully");
-        window.location.replace("/home");
-      })
+      .then((response) => response.json()) // Parse JSON response
       .then((data) => {
-        // Handle the successful login response here
-        console.log(data);
+        console.log(data); // Log the response data for debugging
+
+        if (data.details) {
+          // Handle successful login response
+          alert("Logged in successfully");
+
+          // If you are storing the token manually (if not using cookies)
+          // localStorage.setItem("access_token", data.token); // Example
+
+          window.location.replace("/home"); // Redirect to the home page
+        } else {
+          // Handle login failure response
+          setError("Invalid email or password. Please try again.");
+        }
       })
       .catch((error) => {
-        // Handle error if the login API call fails
-        setError("Invalid email or password. Please try again.");
+        // Handle network or server error
+        setError("An error occurred. Please try again.");
         console.error("Error:", error);
       });
   };
@@ -226,8 +236,8 @@ const Login = () => {
             />
             <Input
               type="password"
-              name="Password"
-              value={formData.Password}
+              name="password"
+              value={formData.password}
               onChange={handleChange}
               placeholder="Password"
             />
