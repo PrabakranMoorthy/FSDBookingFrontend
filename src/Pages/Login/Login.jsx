@@ -60,6 +60,7 @@ const Login = () => {
       body: JSON.stringify(formData),
     })
       .then((response) => {
+        sessionStorage.setItem("authToken", response.data.token); // Store token
         alert("Logged In succesfully");
         window.location.replace("/home");
       })

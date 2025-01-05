@@ -52,21 +52,29 @@ const Hotel = () => {
     setOpenModal(false);
   };
 
-  const handleConfirmBooking = (bookingDetails) => {
-    const handleBooking = async () => {
-      try {
-        const res = await axios.post(
-          `${host}/api/rooms/bookroom`,
-          bookingDetails
-        );
+  const handleConfirmBooking = async (bookingDetails) => {
+    try {
+      const token = sessionStorage.getItem("authToken");
+      const res = await axios.post(
+        `${host}/api/rooms/bookroom`,
+        bookingDetails,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json", // Optional: if you're sending JSON data
+          },
+        }
+      );
+      if (res.status == 200) {
         console.log(res.data);
         console.log("Booking confirmed:", bookingDetails);
         handleBookingFormModalClose();
-      } catch (err) {
-        console.log(err.response.data);
+      } else {
+        alert(res.data.message);
       }
-    };
-    handleBooking;
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
 
   return (
