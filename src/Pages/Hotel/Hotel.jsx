@@ -52,23 +52,23 @@ const Hotel = () => {
     setOpenModal(false);
   };
 
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-    return null;
-  };
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(";").shift();
+  //   return null;
+  // };
 
   // Get token from cookies
 
   const handleConfirmBooking = async (bookingDetails) => {
     try {
       // Retrieve the token from cookies (ensure getCookie function is defined)
-      const token = getCookie("access_token");
+      // const token = getCookie("access_token");
 
-      if (!token) {
-        throw new Error("Token is missing or expired. Please login again.");
-      }
+      // if (!token) {
+      //   throw new Error("Token is missing or expired. Please login again.");
+      // }
 
       // Make the booking request
       const res = await axios.post(
@@ -76,7 +76,6 @@ const Hotel = () => {
         bookingDetails,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json", // Optional: if you're sending JSON data
           },
         }
