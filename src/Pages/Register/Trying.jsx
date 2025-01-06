@@ -72,7 +72,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    Password: "",
+    password: "",
     phone: "",
     // Other form fields as needed
   });
@@ -115,7 +115,7 @@ const Register = () => {
     if (!validateEmail(formData.email)) {
       return alert("Please enter valid Email !");
     }
-    if (!validPassword(formData.Password)) {
+    if (!validPassword(formData.password)) {
       return alert(
         "Please enter valid Password that must contain 8 char with upercase, lowercase, special char and number!"
       );
@@ -174,9 +174,9 @@ const Register = () => {
             />
             <Input
               type="password"
-              name="Password"
+              name="password"
               placeholder="Password"
-              value={formData.Password}
+              value={formData.password}
               onChange={handleChange}
             />
             <Agreement>

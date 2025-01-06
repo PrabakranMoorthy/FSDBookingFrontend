@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "./login.css";
 import styled from "styled-components";
 import MetaData from "../../Components/MetaData";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/StyledNav/Nav";
 import { host } from "../../Hooks/Config";
+
+
 
 const Container = styled.div`
   width: 100vw;
