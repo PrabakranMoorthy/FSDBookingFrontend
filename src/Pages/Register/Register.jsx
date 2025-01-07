@@ -202,7 +202,7 @@ const Register = () => {
     }
     // Perform API call here
     // Example using fetch:
-    fetch(host + "/api/auth/register", {
+    fetch(`${host}/api/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
