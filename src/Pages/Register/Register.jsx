@@ -150,7 +150,7 @@ const Register = () => {
   // };
 
   const [formData, setFormData] = useState({
-    Name: "",
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -235,9 +235,9 @@ const Register = () => {
           <Form onSubmit={handleSubmit}>
             <Input
               type="name"
-              name="Name"
+              name="name"
               placeholder="Name"
-              value={formData.Name}
+              value={formData.name}
               onChange={handleChange}
             />
             <Input
